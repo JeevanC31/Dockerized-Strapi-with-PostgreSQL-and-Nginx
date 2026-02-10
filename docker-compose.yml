@@ -1,0 +1,47 @@
+networks:
+  strapi-net:
+    driver: bridge
+
+volumes:
+  postgres-data:
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapipassword
+      POSTGRES_DB: strapidb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - strapi-net
+
+  strapi:
+    build:
+      context: ./my-strapi-app
+    container_name: strapi
+    restart: always
+    env_file:
+      - ./my-strapi-app/.env
+    depends_on:
+      - postgres
+    networks:
+      - strapi-net
+    expose:
+      - "1337"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - strapi
+    networks:
+      - strapi-net
