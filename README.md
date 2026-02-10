@@ -48,7 +48,7 @@ day2/
 
 ### 1️. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone (https://github.com/JeevanC31/Dockerized-Strapi-with-PostgreSQL-and-Nginx)
 
 2️. Build and Start Containers
 docker compose build
