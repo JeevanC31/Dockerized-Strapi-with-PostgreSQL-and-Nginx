@@ -20,7 +20,7 @@ Browser (localhost:80)
         |
     PostgreSQL
 ```
-## 📁 Project Structure
+##  Project Structure
 ```text
 day2/
 ├── my-strapi-app/ # Strapi application (Node-based)
@@ -38,13 +38,13 @@ day2/
 └── README.md
 ```
 
-## ⚙️ Prerequisites
+##  Prerequisites
 - Docker
 - Docker Compose
 
 ---
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 ### 1️. Clone the Repository
 ```bash
